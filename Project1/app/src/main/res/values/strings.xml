@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Project1</string>
+    <string name="button1">Button1</string>
+    <string name="button2">Button2</string>
+    <string name="welcome_text">Welcome to Karan\'s Project 1</string>
+    <string name="view_text_activity_text">Please enter the contact details</string>
+</resources>
