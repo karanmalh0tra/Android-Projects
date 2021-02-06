@@ -11,6 +11,9 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class NextActivity extends AppCompatActivity {
     protected EditText textField;
     @Override
@@ -28,18 +31,26 @@ public class NextActivity extends AppCompatActivity {
         public boolean onEditorAction(TextView v, int actionId, KeyEvent event){
             if(actionId == EditorInfo.IME_ACTION_DONE || event.getKeyCode() == KeyEvent.KEYCODE_ENTER){
                 Log.i("NextActivity","The text entered is: "+textField.getText());
-//                Intent i = new Intent(NextActivity.this,MainActivity.class);
                 Intent i = new Intent();
-                if (validateString(String.valueOf(textField.getText()))){
+                String name = String.valueOf(textField.getText());
+                if (validateString(name)){
                     Log.i("NextActivity","Within the loop");
-                    i.putExtra("contactName", String.valueOf(textField.getText()));
-//                    startActivityForResult(i,200);
+                    i.putExtra("contactName", name);
+                    i.putExtra("Flag", "True");
                     setResult(RESULT_OK,i) ;
                 }
                 else {
-                    i.putExtra("contactName", "");
-//                    startActivityForResult(i,500);
-                    setResult(RESULT_CANCELED,i);
+                    if (name.length() > 0){
+                        i.putExtra("contactName", name);
+                        i.putExtra("Flag", "False");
+                        setResult(RESULT_CANCELED,i);
+                    }
+                    else {
+                        i.putExtra("contactName", "");
+                        i.putExtra("Flag", "False");
+                        setResult(RESULT_CANCELED,i);
+                    }
+
                 }
                 finish();
             }
@@ -51,7 +62,7 @@ public class NextActivity extends AppCompatActivity {
     protected boolean validateString(String name){
         String trimmedName = name.trim();
         if (trimmedName.length() != 0) {
-            return true;
+            return name.matches("[a-z A-Z]+");
         }
         return false;
     }
