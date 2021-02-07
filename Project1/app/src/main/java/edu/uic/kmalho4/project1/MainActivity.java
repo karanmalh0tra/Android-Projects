@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     protected Button button1;
     protected Button button2;
     protected String name;
-    protected String flag = "False";
+    protected String flag = "False"; //flag is used to maintain states between the two activities
     protected int result_code;
 
 
@@ -27,33 +27,40 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //binding the elements to the fields
-        button1 = (Button) findViewById(R.id.button1);
-        button2 = (Button) findViewById(R.id.button2);
+        button1 = findViewById(R.id.button1);
+        button2 = findViewById(R.id.button2);
 
-        button1.setOnClickListener(button1Listener) ;
-        button2.setOnClickListener(button2Listener) ;
+        button1.setOnClickListener(button1Listener);
+        button2.setOnClickListener(button2Listener);
         Log.i("MainActivity","Main Activity Created State");
     }
 
+    //Listener for Button 1
     private final View.OnClickListener button1Listener = v -> switchToNextActivity();
 
+    //Listener for Button 2
     private final View.OnClickListener button2Listener = v -> insertContact(name);
 
     public void insertContact(String name){
+        //result code -1 comes on RESULT_OK
         if(result_code == -1){
             Intent addANewContact = new Intent(Intent.ACTION_INSERT);
             addANewContact.setType(ContactsContract.Contacts.CONTENT_TYPE);
             addANewContact.putExtra(ContactsContract.Intents.Insert.NAME, name);
             startActivity(addANewContact);
         }
-        else if (result_code == 0 && flag.equals("False") && name.length() >0){
+        //RESULT_CODE is 0 during an invalid name or when the user presses the back button
+
+        //Here, the condition is checking for incorrect name
+        else if (result_code == 0 && flag.equals("False") && name != null && name.length() >0){
             Context context = getApplicationContext();
-            CharSequence text = "Invalid name entered!";
+            CharSequence text = "Invalid name entered! "+name;
             int duration = Toast.LENGTH_SHORT;
 
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
         }
+        //here the condition is checking when the user presses the back button directly
         else if (result_code == 0){
             Context context = getApplicationContext();
             CharSequence text = "No name was entered!";
@@ -94,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int code, int result_code, Intent i) {
         super.onActivityResult(code, result_code, i);
         this.result_code = result_code;
-        //result code -1 if RESULT_OK and 0 if RESULT_CANCELLED\
+        //result code -1 if RESULT_OK and 0 if RESULT_CANCELLED
         if (code == 200){
             Log.i("MainActivity: ", "Returned result is: " + result_code) ;
 
@@ -104,7 +111,6 @@ public class MainActivity extends AppCompatActivity {
                 name = (String) contactData.get("contactName");
                 flag = (String) contactData.get("Flag");
                 Log.i("MainActivity","Received String "+name+" from NextActivity and visited= "+flag);
-//            finish();
             }
             else{
                 name = "";
@@ -112,8 +118,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("MainActivity","Instance received was null");
             }
         }
-
-
     }
 
 
