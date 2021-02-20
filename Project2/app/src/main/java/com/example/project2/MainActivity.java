@@ -4,8 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -29,14 +37,40 @@ public class MainActivity extends AppCompatActivity {
         loadListItem();
     }
 
+    // Create Options Menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.top_menu, menu);
+        return true;
+    }
+    // Process clicks on Options Menu items
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_list:
+                Toast.makeText(getApplicationContext(), "you've been helped",
+                        Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.menu_grid:
+                Toast.makeText(getApplicationContext(), "you've been helped more",
+                        Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return false;
+        }
+    }
+
     private void loadListItem(){
         Log.i(TAG, "loadListItem: called");
 
         List<Integer> imageUrls = Arrays.asList(R.drawable.wonderwall, R.drawable.hey_jude,
-                R.drawable.learning_to_fly,R.drawable.whats_poppin,R.drawable.if_you_want_love,
-                R.drawable.time,R.drawable.used_to_me,R.drawable.conversations);
-        List<String> titleNames = Arrays.asList("Wonderwall","Hey Jude", "Learning to Fly", "WHATS POPPIN","If You Want Love","Time","Used to Me","Conversations");
-        List<String> artistNames = Arrays.asList("Oasis","Beatles", "Pink Floyd", "Jack Harlow","NF","NF","Cameron Dallas","Juice WRLD");
+                R.drawable.learning_to_fly,R.drawable.whats_poppin,
+                R.drawable.time,R.drawable.used_to_me,R.drawable.conversations,R.drawable.lose_yourself);
+        List<String> titleNames = Arrays.asList("Wonderwall","Hey Jude", "Learning to Fly",
+                "WHATS POPPIN","Time","Conversations","Lose Yourself");
+        List<String> artistNames = Arrays.asList("Oasis","Beatles", "Pink Floyd",
+                "Jack Harlow","NF","Juice WRLD","Eminem");
         mTitles.addAll(titleNames);
         mArtists.addAll(artistNames);
         mImageLinks.addAll(imageUrls);
