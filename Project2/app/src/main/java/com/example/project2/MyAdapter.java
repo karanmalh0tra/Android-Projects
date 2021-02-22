@@ -32,7 +32,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             "https://www.youtube.com/watch?v=HIwAI05Y1fU",
             "https://www.youtube.com/watch?v=E1ZVSFfCk9g",
             "https://www.youtube.com/watch?v=1VSZtyenNlA",
-            "https://www.youtube.com/watch?v=_Yhyp-_hX2s");
+            "https://www.youtube.com/watch?v=_Yhyp-_hX2s",
+            "https://www.youtube.com/watch?v=fJ9rUzIMcZQ",
+            "https://www.youtube.com/watch?v=lXgkuM2NhYI");
     public List<String> songWikipediaUrls = Arrays.asList(
             "https://en.wikipedia.org/wiki/Wonderwall_(song)",
             "https://en.wikipedia.org/wiki/Hey_Jude",
@@ -40,7 +42,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             "https://en.wikipedia.org/wiki/Whats_Poppin",
             "https://en.wikipedia.org/wiki/Time_(NF_song)",
             "https://en.wikipedia.org/wiki/Conversations_(song)",
-            "https://en.wikipedia.org/wiki/Lose_Yourself");
+            "https://en.wikipedia.org/wiki/Lose_Yourself",
+            "https://en.wikipedia.org/wiki/Bohemian_Rhapsody",
+            "https://en.wikipedia.org/wiki/%22Heroes%22_(David_Bowie_song)");
     public List<String> artistWikipediaUrls = Arrays.asList(
             "https://en.wikipedia.org/wiki/Oasis_(band)",
             "https://en.wikipedia.org/wiki/The_Beatles",
@@ -48,7 +52,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             "https://en.wikipedia.org/wiki/Jack_Harlow",
             "https://en.wikipedia.org/wiki/NF_(rapper)",
             "https://en.wikipedia.org/wiki/Juice_Wrld",
-            "https://en.wikipedia.org/wiki/Eminem");
+            "https://en.wikipedia.org/wiki/Eminem",
+            "https://en.wikipedia.org/wiki/Queen_(band)",
+            "https://en.wikipedia.org/wiki/David_Bowie");
 
     public ArrayList<String> mSongUrls = new ArrayList<>();
     public ArrayList<String> mSongWikiUrls = new ArrayList<>();
