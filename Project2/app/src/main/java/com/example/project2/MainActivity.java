@@ -25,17 +25,13 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
+    //initially linear layout. will change based on user selection
     private String currentLayout = "LinearLayout";
+
     private ArrayList<Integer> mImageLinks = new ArrayList<>();
     private ArrayList<String> mTitles = new ArrayList<>();
     private ArrayList<String> mArtists = new ArrayList<>();
 
-//    private enum LayoutManagerType {
-//        GRID_LAYOUT_MANAGER,
-//        LINEAR_LAYOUT_MANAGER
-//    }
-
-//    private LayoutManagerType mCurrentLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.i(TAG, "onCreate: started");
 
+        //set the stored layout if savedinstancestate is not null.
         if (savedInstanceState != null){
             Log.i(TAG, "onCreate: savedInstanceState is not null");
             currentLayout = savedInstanceState.getString("currentLayout");
@@ -60,12 +57,12 @@ public class MainActivity extends AppCompatActivity {
         inflater.inflate(R.menu.top_menu, menu);
         return true;
     }
+
     // Process clicks on Options Menu items
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_list:
-
                 currentLayout = "LinearLayout";
                 initMyAdapter(currentLayout);
                 return true;
@@ -78,28 +75,32 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //load images, song names and artist names in the Array.
     private void loadListItem(){
         Log.i(TAG, "loadListItem: called");
 
         List<Integer> imageUrls = Arrays.asList(R.drawable.wonderwall, R.drawable.hey_jude,
                 R.drawable.learning_to_fly,R.drawable.whats_poppin,
                 R.drawable.time,R.drawable.conversations, R.drawable.lose_yourself,
-                R.drawable.bohemian_rhapsody,R.drawable.heroes);
+                R.drawable.bohemian_rhapsody,R.drawable.heroes,R.drawable.rockstar,
+                R.drawable.yellow,R.drawable.breakeven,R.drawable.hero,R.drawable.love_somebody,
+                R.drawable.sugar);
         List<String> titleNames = Arrays.asList("Wonderwall","Hey Jude", "Learning to Fly",
-                "WHATS POPPIN","Time","Conversations","Lose Yourself","Bohemian Rhapsody","Heroes");
+                "WHATS POPPIN","Time","Conversation","Lose Yourself","Bohemian Rhapsody","Heroes",
+                "ROCKSTAR","Yellow","Breakeven","Hero","Love Somebody","Sugar");
         List<String> artistNames = Arrays.asList("Oasis","Beatles", "Pink Floyd",
-                "Jack Harlow","NF","Juice WRLD","Eminem","Queen","David Bowie");
+                "Jack Harlow","NF","Juice WRLD","Eminem","Queen","David Bowie",
+                "DaBaby","Coldplay","The Script","Skillet","Maroon 5","Maroon 5");
         mTitles.addAll(titleNames);
         mArtists.addAll(artistNames);
         mImageLinks.addAll(imageUrls);
     }
 
+    //initialize the adapter, compare whether the layout to be set is grid or list.
     private void initMyAdapter(String currentLayout){
         Log.i(TAG, "initMyAdapter: called");
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        MyAdapter adapter = new MyAdapter(mImageLinks, mTitles, mArtists, this);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(adapter);
+
         if (currentLayout.equals("GridLayout")){
             Log.i(TAG, "initMyAdapter: inside initMyAdapter GridLayout");
             recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
@@ -108,11 +109,14 @@ public class MainActivity extends AppCompatActivity {
             Log.i(TAG, "initMyAdapter: inside initMyAdapter LinearLayout");
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
         }
+        MyAdapter adapter = new MyAdapter(mImageLinks, mTitles, mArtists, this,recyclerView.getLayoutManager());
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(adapter);
     }
 
+    //to save the instance during configuration change.
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState){
-//        savedInstanceState.putSerializable(CURRENT_LAYOUT, currentLayout);
         savedInstanceState.putString("currentLayout",currentLayout);
         super.onSaveInstanceState(savedInstanceState);
     }
