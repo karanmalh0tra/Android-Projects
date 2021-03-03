@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="Images">
+        <item>@drawable/wonderwall</item>
+        <item>@drawable/hey_jude</item>
+        <item>@drawable/learning_to_fly</item>
+        <item>@drawable/whats_poppin</item>
+        <item>@drawable/time</item>
+        <item>@drawable/conversations</item>
+        <item>@drawable/lose_yourself</item>
+        <item>@drawable/bohemian_rhapsody</item>
+        <item>@drawable/heroes</item>
+        <item>@drawable/rockstar</item>
+        <item>@drawable/yellow</item>
+        <item>@drawable/breakeven</item>
+        <item>@drawable/hero</item>
+        <item>@drawable/love_somebody</item>
+        <item>@drawable/sugar</item>
+    </integer-array>
+    <string-array name="Titles">
+        <item>Wonderwall</item>
+        <item>Hey Jude</item>
+        <item>Learning to Fly</item>
+        <item>WHATS POPPIN</item>
+        <item>Time</item>
+        <item>Conversation</item>
+        <item>Lose Yourself</item>
+        <item>Bohemian Rhapsody</item>
+        <item>Heroes</item>
+        <item>ROCKSTAR</item>
+        <item>Yellow</item>
+        <item>Breakeven</item>
+        <item>Hero</item>
+        <item>Love Somebody</item>
+        <item>Sugar</item>
+    </string-array>
+    <string-array name="Artists">
+        <item>Oasis</item>
+        <item>Beatles</item>
+        <item>Pink Floyd</item>
+        <item>Jack Harlow</item>
+        <item>NF</item>
+        <item>Juice WRLD</item>
+        <item>Eminem</item>
+        <item>Queen</item>
+        <item>David Bowie</item>
+        <item>DaBaby</item>
+        <item>Coldplay</item>
+        <item>The Script</item>
+        <item>Skillet</item>
+        <item>Maroon 5</item>
+        <item>Maroon 5</item>
+    </string-array>
+    <string-array name="songURLs">
+        <item>https://www.youtube.com/watch?v=bx1Bh8ZvH84</item>
+        <item>https://www.youtube.com/watch?v=A_MjCqQoLLA</item>
+        <item>https://www.youtube.com/watch?v=nVhNCTH8pDs</item>
+        <item>https://www.youtube.com/watch?v=HIwAI05Y1fU</item>
+        <item>https://www.youtube.com/watch?v=E1ZVSFfCk9g</item>
+        <item>https://www.youtube.com/watch?v=1VSZtyenNlA</item>
+        <item>https://www.youtube.com/watch?v=_Yhyp-_hX2s</item>
+        <item>https://www.youtube.com/watch?v=fJ9rUzIMcZQ</item>
+        <item>https://www.youtube.com/watch?v=lXgkuM2NhYI</item>
+        <item>https://www.youtube.com/watch?v=83xBPCw5hh4</item>
+        <item>https://www.youtube.com/watch?v=yKNxeF4KMsY</item>
+        <item>https://www.youtube.com/watch?v=MzCLLHscMOw</item>
+        <item>https://www.youtube.com/watch?v=uGcsIdGOuZY</item>
+        <item>https://www.youtube.com/watch?v=MU8B4XDI3Uw</item>
+        <item>https://www.youtube.com/watch?v=09R8_2nJtjg</item>
+    </string-array>
+    <string-array name="songWikiURLs">
+        <item>https://en.wikipedia.org/wiki/Wonderwall_(song)</item>
+        <item>https://en.wikipedia.org/wiki/Hey_Jude</item>
+        <item>https://en.wikipedia.org/wiki/Learning_to_Fly_(Pink_Floyd_song)</item>
+        <item>https://en.wikipedia.org/wiki/Whats_Poppin</item>
+        <item>https://en.wikipedia.org/wiki/Time_(NF_song)</item>
+        <item>https://en.wikipedia.org/wiki/Conversations_(song)</item>
+        <item>https://en.wikipedia.org/wiki/Lose_Yourself</item>
+        <item>https://en.wikipedia.org/wiki/Bohemian_Rhapsody</item>
+        <item>https://en.wikipedia.org/wiki/%22Heroes%22_(David_Bowie_song)</item>
+        <item>https://en.wikipedia.org/wiki/Rockstar_(DaBaby_song)</item>
+        <item>https://en.wikipedia.org/wiki/Yellow_(Coldplay_song)</item>
+        <item>https://en.wikipedia.org/wiki/Breakeven_(song)</item>
+        <item>https://en.wikipedia.org/wiki/Hero_(Skillet_song)</item>
+        <item>https://en.wikipedia.org/wiki/Love_Somebody_(Maroon_5_song)</item>
+        <item>https://en.wikipedia.org/wiki/Sugar_(Maroon_5_song)</item>
+    </string-array>
+    <string-array name="ArtistWikiURLs">
+        <item>https://en.wikipedia.org/wiki/Oasis_(band)</item>
+        <item>https://en.wikipedia.org/wiki/The_Beatles</item>
+        <item>https://en.wikipedia.org/wiki/Pink_Floyd</item>
+        <item>https://en.wikipedia.org/wiki/Jack_Harlow</item>
+        <item>https://en.wikipedia.org/wiki/NF_(rapper)</item>
+        <item>https://en.wikipedia.org/wiki/Juice_Wrld</item>
+        <item>https://en.wikipedia.org/wiki/Eminem</item>
+        <item>https://en.wikipedia.org/wiki/Queen_(band)</item>
+        <item>https://en.wikipedia.org/wiki/David_Bowie</item>
+        <item>https://en.wikipedia.org/wiki/DaBaby</item>
+        <item>https://en.wikipedia.org/wiki/Coldplay</item>
+        <item>https://en.wikipedia.org/wiki/The_Script</item>
+        <item>https://en.wikipedia.org/wiki/Skillet_(band)</item>
+        <item>https://en.wikipedia.org/wiki/Maroon_5</item>
+        <item>https://en.wikipedia.org/wiki/Maroon_5</item>
+    </string-array>
+</resources>

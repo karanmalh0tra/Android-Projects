@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.res.TypedArray;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,9 +29,9 @@ public class MainActivity extends AppCompatActivity {
     //initially linear layout. will change based on user selection
     private String currentLayout = "LinearLayout";
 
-    private ArrayList<Integer> mImageLinks = new ArrayList<>();
-    private ArrayList<String> mTitles = new ArrayList<>();
-    private ArrayList<String> mArtists = new ArrayList<>();
+    private TypedArray mImageLinks;
+    public static String[] mTitles;
+    public static String[] mArtists;
 
 
     @Override
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.i(TAG, "onCreate: started");
 
-        //set the stored layout if savedinstancestate is not null.
+        //set the stored layout if savedInstanceState is not null.
         if (savedInstanceState != null){
             Log.i(TAG, "onCreate: savedInstanceState is not null");
             currentLayout = savedInstanceState.getString("currentLayout");
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         Log.i(TAG, "onCreateOptionsMenu: before inflating");
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.top_menu, menu);
-        return true;
+        return true; //display menu in host activity now
     }
 
     // Process clicks on Options Menu items
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.menu_list:
                 currentLayout = "LinearLayout";
                 initMyAdapter(currentLayout);
-                return true;
+                return true; //done processing this menu selection
             case R.id.menu_grid:
                 currentLayout = "GridLayout";
                 initMyAdapter(currentLayout);
@@ -79,21 +80,10 @@ public class MainActivity extends AppCompatActivity {
     private void loadListItem(){
         Log.i(TAG, "loadListItem: called");
 
-        List<Integer> imageUrls = Arrays.asList(R.drawable.wonderwall, R.drawable.hey_jude,
-                R.drawable.learning_to_fly,R.drawable.whats_poppin,
-                R.drawable.time,R.drawable.conversations, R.drawable.lose_yourself,
-                R.drawable.bohemian_rhapsody,R.drawable.heroes,R.drawable.rockstar,
-                R.drawable.yellow,R.drawable.breakeven,R.drawable.hero,R.drawable.love_somebody,
-                R.drawable.sugar);
-        List<String> titleNames = Arrays.asList("Wonderwall","Hey Jude", "Learning to Fly",
-                "WHATS POPPIN","Time","Conversation","Lose Yourself","Bohemian Rhapsody","Heroes",
-                "ROCKSTAR","Yellow","Breakeven","Hero","Love Somebody","Sugar");
-        List<String> artistNames = Arrays.asList("Oasis","Beatles", "Pink Floyd",
-                "Jack Harlow","NF","Juice WRLD","Eminem","Queen","David Bowie",
-                "DaBaby","Coldplay","The Script","Skillet","Maroon 5","Maroon 5");
-        mTitles.addAll(titleNames);
-        mArtists.addAll(artistNames);
-        mImageLinks.addAll(imageUrls);
+        //fetch song names, artist names and image files from arrays.xml
+        mTitles = getResources().getStringArray(R.array.Titles);
+        mArtists = getResources().getStringArray(R.array.Artists);
+        mImageLinks = getResources().obtainTypedArray(R.array.Images);
     }
 
     //initialize the adapter, compare whether the layout to be set is grid or list.
@@ -114,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    //to save the instance during configuration change.
+    //to save the layout instance during configuration change.
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState){
         savedInstanceState.putString("currentLayout",currentLayout);
