@@ -23,10 +23,13 @@ Contains source code and documentation of Android Projects made during the learn
 <table>
     <tr>
         <td>
-            <img src="" width="200"/>
+            <img src="images/project2/home_grid.png" width="200"/>
         </td>
         <td>
-            <img src="" width="200"/>
+            <img src="images/project2/home_list.png" width="200"/>
+        </td>
+        <td>
+            <img src="images/project2/long_press.png" width="200"/>
         </td>
     </tr>
 </table>
