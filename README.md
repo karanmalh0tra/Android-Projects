@@ -2,6 +2,41 @@
 
 Contains source code and documentation of Android Projects made during the learning of CS-478, Mobile App Development course at University of Illinois at Chicago.
 
+## Project 1
+
+## Specification
+- Android 11 - API Level 30
+
+## Functionality
+- The app displays 2 buttons and a welcome text
+- On pressing the button 1, the user will be prompted to enter a legal name(consists of a name and a surname)
+- After entering the name, the user is prompted back to the home screen.
+- On pressing the button 2, if the name is a legal name, edit contacts is opened, else, a toast message is displayed stating that the name entered was not valid.
+
+## App Screenshots
+
+<table>
+    <tr>
+        <td>
+            <img src="images/project1/home.png" width="200"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <img src="images/project1/on_button_one.png" width="200"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <img src="images/project1/on_button_two_contact.png" width="200"/>
+        </td>
+        <td>
+            <img src="images/project1/on_button_two_toast.png" width="200"/>
+        </td>
+    </tr>
+</table>
+
+
 ## Project 2
 
 ## Specification
