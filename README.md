@@ -18,18 +18,18 @@ Contains source code and documentation of Android Projects made during the learn
 <table>
     <tr>
         <td>
-            <img src="images/project1/home.png"/>
+            <img src="images/project1/home.png" width="300"/>
         </td>
         <td>
-            <img src="images/project1/on_button_one.png"/>
+            <img src="images/project1/on_button_one.png" width="300"/>
         </td>
     </tr>
     <tr>
         <td>
-            <img src="images/project1/on_button_two_contact.png"/>
+            <img src="images/project1/on_button_two_contact.png" width="300"/>
         </td>
         <td>
-            <img src="images/project1/on_button_two_toast.png"/>
+            <img src="images/project1/on_button_two_toast.png" width="300"/>
         </td>
     </tr>
 </table>
